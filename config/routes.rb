@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'users/edit'
   # ↓はコメントが画像と結びついているので入れ子関係になる
   resources :post_images, only: [:new, :index, :show, :create, :destroy] do
-    resources :post_comments, only: [:create]
+    resources :post_comments, only: [:create, :destroy]
   end
   devise_for :users
   root to: "homes#top"
