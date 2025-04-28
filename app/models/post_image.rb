@@ -3,6 +3,11 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
 
+    #shop_nameが存在しているかを確認するバリデーション
+    validates :book_name, presence: true
+    #imageが存在しているかを確認するバリデーション
+    validates :image, presence: true
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
